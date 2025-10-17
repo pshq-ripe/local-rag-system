@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "web-search": {
+      "command": "node",
+      "args": [
+        "/Users/YOUR_USERNAME/lm-studio-mcp/web-search-mcp/dist/index.js"
+      ],
+      "env": {
+        "MAX_BROWSERS": "3",
+        "BROWSER_HEADLESS": "true",
+        "DEFAULT_TIMEOUT": "6000",
+        "MAX_CONTENT_LENGTH": "100000",
+        "ENABLE_RELEVANCE_CHECKING": "true",
+        "RELEVANCE_THRESHOLD": "0.3"
+      }
+    },
+    "kubernetes": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "kubernetes-mcp-server@latest",
+        "--disable-destructive"
+      ],
+      "env": {
+        "KUBECONFIG": "/Users/YOUR_USERNAME/.kube/config"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/YOUR_USERNAME/projects"
+      ]
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-docker"]
+    }
+  }
+}
+
